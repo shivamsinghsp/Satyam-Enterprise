@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    /* Industrial Navy & Copper Theme */
+    --background: 220 25% 8%;
+    --foreground: 45 20% 95%;
+
+    --card: 220 20% 12%;
+    --card-foreground: 45 20% 95%;
+
+    --popover: 220 20% 10%;
+    --popover-foreground: 45 20% 95%;
+
+    /* Copper/Gold Primary */
+    --primary: 32 80% 50%;
+    --primary-foreground: 220 25% 8%;
+
+    /* Steel Gray Secondary */
+    --secondary: 220 15% 20%;
+    --secondary-foreground: 45 20% 90%;
+
+    --muted: 220 15% 18%;
+    --muted-foreground: 220 10% 60%;
+
+    /* Warm Copper Accent */
+    --accent: 25 85% 55%;
+    --accent-foreground: 220 25% 8%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 15% 22%;
+    --input: 220 15% 25%;
+    --ring: 32 80% 50%;
+
+    --radius: 0.5rem;
+
+    /* Custom Design Tokens */
+    --copper: 32 80% 50%;
+    --copper-light: 35 75% 60%;
+    --copper-dark: 28 85% 35%;
+    --navy: 220 25% 8%;
+    --navy-light: 220 20% 15%;
+    --steel: 220 10% 40%;
+    --steel-light: 220 8% 60%;
+
+    /* Gradients */
+    --gradient-copper: linear-gradient(135deg, hsl(32, 80%, 50%) 0%, hsl(25, 85%, 55%) 50%, hsl(35, 75%, 60%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(220, 25%, 8%) 0%, hsl(220, 20%, 12%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(220, 20%, 14%) 0%, hsl(220, 20%, 10%) 100%);
+    --gradient-overlay: linear-gradient(180deg, transparent 0%, hsl(220, 25%, 8%, 0.9) 100%);
+
+    /* Shadows */
+    --shadow-copper: 0 4px 30px hsl(32, 80%, 50%, 0.2);
+    --shadow-card: 0 10px 40px hsl(0, 0%, 0%, 0.3);
+    --shadow-glow: 0 0 60px hsl(32, 80%, 50%, 0.15);
+
+    /* Sidebar - keeping defaults */
+    --sidebar-background: 220 20% 10%;
+    --sidebar-foreground: 45 20% 95%;
+    --sidebar-primary: 32 80% 50%;
+    --sidebar-primary-foreground: 220 25% 8%;
+    --sidebar-accent: 220 15% 18%;
+    --sidebar-accent-foreground: 45 20% 95%;
+    --sidebar-border: 220 15% 22%;
+    --sidebar-ring: 32 80% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .text-gradient-copper {
+    background: var(--gradient-copper);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-copper {
+    background: var(--gradient-copper);
+  }
+
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .bg-gradient-card {
+    background: var(--gradient-card);
+  }
+
+  .shadow-copper {
+    box-shadow: var(--shadow-copper);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 4s ease-in-out infinite;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 1s ease-out forwards;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--navy));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--copper));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--copper-light));
+}
